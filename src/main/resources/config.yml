@@ -1,0 +1,165 @@
+# ==============================================================================
+#                      OmniCord Master Configuration File
+#         The Next-Generation Minecraft <-> Discord Integration Suite
+# ==============================================================================
+# All color codes support:
+#   - Legacy colors: &a, &b, &c, &6, &l, &r, etc.
+#   - Modern RGB Hex colors: &#5865F2, #5865F2, <#5865F2>
+#   - Adventure MiniMessage tags: <gradient:#5865F2:#57F287>OmniCord</gradient>
+# ==============================================================================
+
+# Global Plugin Prefix (used in in-game notices & command outputs)
+prefix: "&#5865F2❖ &#7289DA&lOmniCord &#8A9CFE»&r "
+
+# ------------------------------------------------------------------------------
+# 0. CORE MODULES & FEATURE TOGGLES
+# ------------------------------------------------------------------------------
+# Globally enable or disable specific features and subsystems across OmniCord.
+modules:
+  chat_bridge: true        # Two-way Minecraft <-> Discord chat relay & webhooks
+  console_bridge: true     # Real-time console log streaming & remote commands
+  account_linking: true    # /discord link & verification codes
+  two_factor_auth: true    # 2FA login freeze & Discord DM authorization
+  live_dashboard: true     # Auto-updating pinned status embed with TPS/RAM bars
+  support_tickets: true    # ModMail ticket system with Discord threads & /ticket
+  chat_games: true         # Cross-platform Trivia & Minigames with in-game rewards
+  role_sync: true          # Bidirectional rank <-> role synchronization
+  custom_commands: true    # Dynamic Discord slash commands from custom_commands.yml
+  reports_system: true     # In-game /report command with Discord moderation cards
+  presence_rotation: true  # Rotating Discord bot status and player count activity
+  staff_chat: true         # /staffchat and Discord staff channel relay
+  admin_addon: true        # InvSee, Anti-Cheat Watchdog, Combat Logger & Freeze
+  engagement_addon: true   # Server Booster Rewards, Giveaways & Polls
+  community_addon: true    # Temp Voice Channels, FAQ Assistant & Live Maps
+
+# ------------------------------------------------------------------------------
+# 1. BOT CREDENTIALS & CONNECTION
+# ------------------------------------------------------------------------------
+bot:
+  # Paste your Discord Bot Application Token here
+  # Get one at: https://discord.com/developers/applications
+  # IMPORTANT: Enable "Message Content Intent", "Server Members Intent", and "Presence Intent"
+  token: "PASTE_YOUR_DISCORD_BOT_TOKEN_HERE"
+
+  # Your Discord Server (Guild) ID
+  # Right-click your server icon in Discord and click "Copy Server ID" (Developer Mode required)
+  guild_id: "000000000000000000"
+
+# ------------------------------------------------------------------------------
+# 2. CHANNELS CONFIGURATION
+# ------------------------------------------------------------------------------
+channels:
+  # Main Minecraft <-> Discord 2-way chat channel ID
+  chat: "000000000000000000"
+
+  # Console streaming & command execution channel ID
+  console: "000000000000000000"
+
+  # Staff chat channel ID (Requires omnicord.staffchat permission in MC)
+  staff_chat: "000000000000000000"
+
+  # In-game moderation reports channel ID (/report command)
+  reports: "000000000000000000"
+
+  # Voice statistics channel (Auto-renames to show online players e.g. "🟢 Online: 12")
+  # Set to "0" to disable
+  voice_stats_channel_id: "0"
+
+# ------------------------------------------------------------------------------
+# 3. ACCOUNT LINKING & GATEKEEPER MODE
+# ------------------------------------------------------------------------------
+linking:
+  # Require Discord linking to join and play on the Minecraft server (Whitelisting Gatekeeper)
+  require_link_to_join: false
+
+  # Kick message shown to unlinked players when require_link_to_join is enabled
+  kick_message_not_linked: "&#ED4245✘ [OmniCord] You must link your Discord account before joining!\n&#7289DAJoin our Discord: &#5865F2%discord_invite% &7and run &#8A9CFE/link"
+
+  # Discord Invite Link for your server
+  discord_invite_url: "https://discord.gg/yourserver"
+
+  # Number of minutes before generated linking codes expire
+  link_code_expire_minutes: 10
+
+# ------------------------------------------------------------------------------
+# 4. CHAT BRIDGE SETTINGS
+# ------------------------------------------------------------------------------
+chat_bridge:
+  # Enable Minecraft -> Discord chat relay
+  minecraft_to_discord: true
+
+  # Enable Discord -> Minecraft chat relay
+  discord_to_minecraft: true
+
+  # Use Discord Webhooks for player messages (Player avatars & custom usernames)
+  use_webhooks: true
+
+  # Webhook username format. Placeholders: %player%, %displayname%, %vault_prefix%, %luckperms_prefix%
+  webhook_name_format: "%player%"
+
+  # Avatar service for player heads: "cravatar", "crafthead", "minotar", "mc-heads"
+  avatar_service: "crafthead"
+
+  # Play notification chime in Minecraft when a player is mentioned (@PlayerName)
+  enable_mention_pings: true
+  mention_ping_sound: "BLOCK_NOTE_BLOCK_BELL"
+
+# ------------------------------------------------------------------------------
+# 5. SERVER GENERAL SETTINGS
+# ------------------------------------------------------------------------------
+general:
+  # Display name of your server in Discord embeds and status messages
+  server_name: "Minecraft Server"
+
+  # Public server IP shown in Discord status and dashboard
+  server_ip: "play.example.com"
+
+# ------------------------------------------------------------------------------
+# 6. DISCORD BOT PRESENCE (STATUS ROTATION)
+# ------------------------------------------------------------------------------
+presence:
+  enabled: true
+  # Rotation interval in seconds
+  cycle_interval_seconds: 15
+  activities:
+    - type: "PLAYING"
+      text: "%online%/%max% players online"
+    - type: "WATCHING"
+      text: "%server_ip% | 20.0 TPS"
+    - type: "COMPETING"
+      text: "Minecraft 1.21.4"
+
+# ------------------------------------------------------------------------------
+# 7. CONSOLE BRIDGE SETTINGS
+# ------------------------------------------------------------------------------
+console_bridge:
+  # Stream server logs to Discord console channel
+  stream_logs: true
+
+  # Allow administrators to execute console commands from Discord console channel
+  allow_commands: true
+
+  # Redact sensitive commands (like auth passwords or tokens)
+  redact_sensitive_commands: true
+  sensitive_keywords:
+    - "login"
+    - "register"
+    - "changepassword"
+    - "token"
+
+# ------------------------------------------------------------------------------
+# 8. DATABASE & STORAGE ENGINE
+# ------------------------------------------------------------------------------
+database:
+  # Storage type: "SQLITE" (Recommended for single server) or "MYSQL" (Recommended for networks)
+  type: "SQLITE"
+
+  mysql:
+    host: "127.0.0.1"
+    port: 3306
+    database: "omnicord"
+    username: "root"
+    password: ""
+    use_ssl: false
+    maximum_pool_size: 10
+    connection_timeout_ms: 5000

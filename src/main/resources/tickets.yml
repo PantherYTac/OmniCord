@@ -1,0 +1,27 @@
+# ==============================================================================
+#                      OmniCord ModMail & Support Ticket System
+# ==============================================================================
+# Allows in-game players to open tickets via /ticket create <issue>.
+# OmniCord creates a private Discord thread or channel in your staff category!
+# Staff replies in Discord are sent back in-game to the player.
+# ==============================================================================
+
+enabled: true
+
+# Discord Text Channel ID where tickets/threads will be created
+ticket_channel_id: "000000000000000000"
+
+# Staff Role ID that will be pinged when a new ticket is opened (set to "0" to disable)
+staff_role_id: "000000000000000000"
+
+# Maximum open tickets per player at a time
+max_open_tickets_per_player: 1
+
+# Messages
+messages:
+  ticket_created: "%prefix%&#57F287✔ Your support ticket &#8A9CFE#%ticket_id% &#57F287has been opened! Staff on Discord have been notified."
+  ticket_reply_from_staff: "&#5865F2❖ &#7289DA[Support - %staff%] &#8A9CFE› &#FFFFFF%message%"
+  ticket_closed: "%prefix%&eYour support ticket &#8A9CFE#%ticket_id% &ehas been resolved and closed by staff."
+  ticket_already_open: "%prefix%&#ED4245✘ You already have an open support ticket! Type &e/ticket reply <msg>&#ED4245."
+  no_open_ticket: "%prefix%&#ED4245✘ You do not have any active support tickets."
+  ticket_usage: "%prefix%&#ED4245✘ Usage: &e/ticket <create|reply|close|list> [message]"

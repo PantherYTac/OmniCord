@@ -1,0 +1,43 @@
+# ==============================================================================
+#                      OmniCord Discord 2FA Security System
+# ==============================================================================
+# When a player with 'omnicord.2fa' or OP joins, they are frozen in Minecraft
+# until they click [Approve Login] in their Discord Direct Messages!
+# ==============================================================================
+
+enabled: true
+
+# If a player requires 2FA but is NOT linked to Discord:
+#   - false (Default): Asks/reminds the player to link via /discord link, but does NOT freeze or kick them.
+#   - true: Forces the player to link their Discord account before they can move, chat, or play.
+force_link_for_2fa: false
+
+# Require 2FA for all server operators (OPs) automatically
+require_for_op: true
+
+# Require 2FA for players with the permission 'omnicord.2fa'
+require_by_permission: true
+
+# Time in seconds before an unverified player is kicked
+timeout_seconds: 60
+
+# Kick message if verification times out or is denied
+kick_message_timeout: "&#ED4245✘ [2FA Security] Verification timed out! Please approve your login via Discord."
+kick_message_denied: "&#ED4245✘ [2FA Security] Login rejected from Discord."
+
+# Embed sent to Discord DM
+embed:
+  color: "#ED4245"
+  title: "🛡️ 2FA Login Authorization Request"
+  description: "A login attempt was detected on **%server_name%** for your linked Minecraft account: **%player%**"
+  fields:
+    - name: "🌐 IP Address"
+      value: "`%ip%`"
+      inline: true
+    - name: "⏰ Timestamp"
+      value: "`%time%`"
+      inline: true
+    - name: "⚠️ Security Notice"
+      value: "If this was you, click **Approve Login** below. If this wasn't you, click **Deny & Kick** immediately to protect your account!"
+      inline: false
+  footer: "OmniCord Security Shield • Active Session Protection"

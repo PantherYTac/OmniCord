@@ -1,0 +1,37 @@
+# ==============================================================================
+#                      OmniCord Cross-Platform Chat Trivia & Minigames
+# ==============================================================================
+# Periodically broadcasts trivia and math questions in BOTH Minecraft & Discord!
+# First player to type the correct answer wins in-game rewards!
+# ==============================================================================
+
+enabled: true
+
+# Interval in minutes between trivia questions
+interval_minutes: 15
+
+# Time in seconds to answer before the question expires
+time_limit_seconds: 45
+
+# Reward commands executed in console when a player wins
+# Placeholders: %player%, %uuid%, %platform% (Minecraft or Discord)
+rewards:
+  - "give %player% diamond 2"
+  - "eco give %player% 250"
+
+# Questions Pool
+questions:
+  - question: "What is the crafting recipe ingredient needed to make TNT alongside sand?"
+    answers: ["gunpowder", "gun powder"]
+  - question: "Which dimension is home to the Ender Dragon?"
+    answers: ["the end", "end"]
+  - question: "What is 15 * 8?"
+    answers: ["120"]
+  - question: "What ore is required to upgrade diamond gear in a smithing table?"
+    answers: ["netherite", "netherite ingot"]
+  - question: "How many obsidian blocks are needed to create the smallest Nether Portal?"
+    answers: ["10", "ten"]
+  - question: "What mob drops Shulker Shells?"
+    answers: ["shulker", "shulkers"]
+  - question: "What year was Minecraft first publicly released?"
+    answers: ["2009"]

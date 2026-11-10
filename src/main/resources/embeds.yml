@@ -1,0 +1,219 @@
+# ==============================================================================
+#                      OmniCord Discord Embeds Customizer
+# ==============================================================================
+# Fully configure the aesthetic appearance of all Discord embeds dispatched by OmniCord.
+# Hex colors: #5865F2 (Blurple), #57F287 (Mint), #FEE75C (Gold), #ED4245 (Coral),
+#             #EB455F (Crimson), #9B59B6 (Amethyst), #36393F (Charcoal).
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. PLAYER JOIN & QUIT EMBEDS
+# ------------------------------------------------------------------------------
+join:
+  enabled: true
+  color: "#57F287"
+  title: ""
+  description: "Welcome back to **%server_name%**! (**%online%**/**%max%** online)"
+  author:
+    name: "✦ %player% connected (%online%/%max%)"
+    icon_url: "%avatar_url%"
+  footer:
+    text: "%server_name% • Direct IP: %server_ip%"
+    icon_url: ""
+  timestamp: true
+
+first_join:
+  enabled: true
+  color: "#FEE75C"
+  title: ""
+  description: "🎉 **Welcome to %server_name%!**\n**%player%** has joined the server for the very first time! Give them a warm welcome!\n\n✨ Unique Player **#%unique_joins%**"
+  author:
+    name: "★ New Adventurer: %player%"
+    icon_url: "%avatar_url%"
+  thumbnail: "%avatar_url%"
+  footer:
+    text: "%server_name% Community"
+    icon_url: ""
+  timestamp: true
+
+quit:
+  enabled: true
+  color: "#ED4245"
+  title: ""
+  description: "See you next time! (**%online%**/**%max%** online)"
+  author:
+    name: "✦ %player% disconnected (%online%/%max%)"
+    icon_url: "%avatar_url%"
+  footer:
+    text: "%server_name%"
+    icon_url: ""
+  timestamp: true
+
+# ------------------------------------------------------------------------------
+# 2. DEATH & PVP KILL EMBEDS
+# ------------------------------------------------------------------------------
+pvp_kill:
+  enabled: true
+  color: "#EB455F"
+  title: "⚔️ Player Slayed (PvP)"
+  description: "**%player%** was slain by **%killer%**!"
+  thumbnail: "%avatar_url%"
+  fields:
+    - name: "🗡️ Weapon"
+      value: "`%weapon%`"
+      inline: true
+    - name: "🎯 Distance"
+      value: "`%distance%m`"
+      inline: true
+    - name: "📍 Coordinates"
+      value: "`%world%` (%x%, %y%, %z%)"
+      inline: true
+  footer:
+    text: "%server_name% Combat Log"
+    icon_url: ""
+  timestamp: true
+
+death:
+  enabled: true
+  color: "#36393F"
+  title: "☠️ Player Death"
+  description: "**%death_message%**"
+  thumbnail: "%avatar_url%"
+  fields:
+    - name: "💀 Cause / Entity"
+      value: "`%entity%`"
+      inline: true
+    - name: "📍 Coordinates"
+      value: "`%world%` (%x%, %y%, %z%)"
+      inline: true
+  footer:
+    text: "%server_name% Death Log"
+    icon_url: ""
+  timestamp: true
+
+# ------------------------------------------------------------------------------
+# 3. ADVANCEMENTS & ACHIEVEMENTS
+# ------------------------------------------------------------------------------
+advancement_challenge:
+  enabled: true
+  color: "#9B59B6"
+  title: "🏆 Legendary Challenge Conquered!"
+  description: "**%player%** has conquered the challenge:\n✦ **[%advancement_title%]**"
+  thumbnail: "%avatar_url%"
+  footer:
+    text: "Tier: Challenge • %server_name%"
+    icon_url: ""
+  timestamp: true
+
+advancement_goal:
+  enabled: true
+  color: "#5865F2"
+  title: "🎯 Major Goal Reached!"
+  description: "**%player%** has achieved the goal:\n✦ **[%advancement_title%]**"
+  thumbnail: "%avatar_url%"
+  footer:
+    text: "Tier: Goal • %server_name%"
+    icon_url: ""
+  timestamp: true
+
+advancement_task:
+  enabled: true
+  color: "#57F287"
+  title: "✦ Advancement Made!"
+  description: "**%player%** has unlocked:\n✦ **[%advancement_title%]**"
+  thumbnail: "%avatar_url%"
+  footer:
+    text: "Tier: Task • %server_name%"
+    icon_url: ""
+  timestamp: true
+
+advancement:
+  enabled: true
+  color: "#FEE75C"
+  title: "🏆 Advancement Unlocked!"
+  description: "**%player%** has made the advancement **[%advancement_title%]**\n*%advancement_description%*"
+  thumbnail: "%avatar_url%"
+  footer:
+    text: "Type: %advancement_type%"
+    icon_url: ""
+  timestamp: true
+
+# ------------------------------------------------------------------------------
+# 4. SERVER LIFECYCLE (START / STOP)
+# ------------------------------------------------------------------------------
+server_start:
+  enabled: true
+  color: "#57F287"
+  title: "🟢 Server is Online & Ready!"
+  description: "🌟 **%server_name%** is now live and accepting player connections!"
+  fields:
+    - name: "🌐 Server IP"
+      value: "`%server_ip%`"
+      inline: true
+    - name: "⚡ Core & Version"
+      value: "`%server_version%`"
+      inline: true
+    - name: "💾 Allocated Memory"
+      value: "`%max_ram%`"
+      inline: true
+    - name: "⏱️ Boot Duration"
+      value: "`%boot_time%s`"
+      inline: true
+    - name: "☕ Java Runtime"
+      value: "`Java %java_version%`"
+      inline: true
+    - name: "👥 Capacity"
+      value: "`%online% / %max%`"
+      inline: true
+  footer:
+    text: "OmniCord Server Watchdog • Online"
+    icon_url: ""
+  timestamp: true
+
+server_stop:
+  enabled: true
+  color: "#ED4245"
+  title: "🔴 Server Offline"
+  description: "🛑 **%server_name%** has completed a graceful shutdown."
+  fields:
+    - name: "⏱️ Total Session Uptime"
+      value: "`%uptime%`"
+      inline: true
+    - name: "🚪 Status"
+      value: "`Offline for maintenance / restart`"
+      inline: true
+  footer:
+    text: "OmniCord Server Watchdog • Offline"
+    icon_url: ""
+  timestamp: true
+
+# ------------------------------------------------------------------------------
+# 5. STAFF REPORTS & WATCHDOG
+# ------------------------------------------------------------------------------
+report:
+  color: "#EB455F"
+  title: "🚨 In-Game Moderation Report"
+  description: "A player has submitted an in-game moderation report."
+  fields:
+    - name: "👤 Reported Player"
+      value: "`%target%` (UUID: `%target_uuid%`)"
+      inline: true
+    - name: "🚩 Reporter"
+      value: "`%reporter%`"
+      inline: true
+    - name: "📍 Location"
+      value: "`%world%` (%x%, %y%, %z%)"
+      inline: true
+    - name: "📝 Reason"
+      value: "%reason%"
+      inline: false
+    - name: "🏓 Target Ping / TPS"
+      value: "%target_ping%ms / %tps% TPS"
+      inline: true
+    - name: "⏰ Server Time"
+      value: "%time%"
+      inline: true
+  footer:
+    text: "OmniCord Staff Moderation Engine"
+    icon_url: ""
+  timestamp: true

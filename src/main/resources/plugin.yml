@@ -1,0 +1,61 @@
+name: OmniCord
+version: "${version}"
+main: com.omnicord.plugin.OmniCord
+api-version: "1.16"
+author: PantherYTac
+description: The next-generation Minecraft to Discord bridge and management suite.
+softdepend:
+  - Vault
+  - PlaceholderAPI
+  - LuckPerms
+  - CoreProtect
+  - PantherCore
+  - PantherAC
+  - PantherAC-Lite
+  - PantherAC-Premium
+  - FabulousClaims
+  - NeonClans
+
+commands:
+  omnicord:
+    description: Master administrative command for OmniCord.
+    permission: omnicord.admin
+    aliases: [oc]
+    usage: /<command> [reload|status|debug|sync]
+  discord:
+    description: Player discord commands (linking, rewards, info).
+    aliases: [dc]
+    usage: /<command> [link|unlink|info|sync]
+  staffchat:
+    description: Send a private message to server staff and Discord staff channel.
+    permission: omnicord.staffchat
+    aliases: [sc, dsc]
+    usage: /<command> <message>
+  report:
+    description: Submit a report about a player directly to Discord staff.
+    usage: /<command> <player> <reason>
+  ticket:
+    description: Open or reply to an in-game support ticket.
+    aliases: [support, helpop]
+    usage: /<command> <create|reply|close|list> [message]
+  giveaway:
+    description: Enter or view active server giveaways.
+    aliases: [raffle, genter]
+    usage: /<command> [enter|list] [id]
+
+permissions:
+  omnicord.admin:
+    description: Full administrative control over OmniCord.
+    default: op
+  omnicord.staffchat:
+    description: Access to send and view staff chat.
+    default: op
+  omnicord.bypass.chat:
+    description: Bypass chat cooldowns or filters.
+    default: op
+  omnicord.command.link:
+    description: Permission to link Discord account.
+    default: true
+  omnicord.command.report:
+    description: Permission to report players.
+    default: true

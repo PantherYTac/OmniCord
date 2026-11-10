@@ -1,0 +1,71 @@
+# ==============================================================================
+#                      OmniCord Role & Rank Synchronization
+# ==============================================================================
+# Synchronize ranks & roles between Minecraft (LuckPerms/Vault) and Discord.
+# ==============================================================================
+
+enabled: true
+
+# ------------------------------------------------------------------------------
+# 1. SYNC CONFIGURATION & DIRECTION
+# ------------------------------------------------------------------------------
+sync:
+  # Synchronization direction:
+  #   - "BIDIRECTIONAL": Both Minecraft -> Discord and Discord -> Minecraft
+  #   - "MINECRAFT_TO_DISCORD": Only assign Discord roles based on Minecraft ranks
+  #   - "DISCORD_TO_MINECRAFT": Only assign Minecraft ranks based on Discord roles
+  sync_direction: "BIDIRECTIONAL"
+
+  # Sync roles automatically when player joins Minecraft server
+  sync_on_join: true
+
+  # Sync roles on a recurring timer (interval in minutes, 0 to disable)
+  recurring_sync_interval_minutes: 15
+
+# ------------------------------------------------------------------------------
+# 2. LINKED ROLE & NICKNAME SYNC
+# ------------------------------------------------------------------------------
+linked_settings:
+  # Discord Role ID given unconditionally to any player who links their account
+  # Set to "0" to disable
+  linked_role_id: "000000000000000000"
+
+  # Synchronize player's Minecraft username to their Discord nickname in your server
+  sync_nicknames: true
+
+  # Custom nickname format (%player% = Minecraft name, %displayname% = with prefix/rank)
+  nickname_format: "%player%"
+
+  # Commands executed in Minecraft console when a player links for the first time
+  # Placeholders: %player%, %uuid%, %discord_id%, %discord_tag%
+  link_rewards:
+    enabled: true
+    commands:
+      - "give %player% diamond 5"
+      - "tell %player% Thank you for linking your Discord account!"
+
+# ------------------------------------------------------------------------------
+# 3. MINECRAFT -> DISCORD ROLE MAPPING
+# ------------------------------------------------------------------------------
+# When a player has a Minecraft LuckPerms/Vault group, grant them this Discord Role ID.
+# Format:
+#   <minecraft_group_name>: "DISCORD_ROLE_ID"
+minecraft_to_discord:
+  owner: "000000000000000000"
+  admin: "000000000000000000"
+  moderator: "000000000000000000"
+  helper: "000000000000000000"
+  vip: "000000000000000000"
+  mvp: "000000000000000000"
+  default: "000000000000000000"
+
+# ------------------------------------------------------------------------------
+# 4. DISCORD -> MINECRAFT RANK MAPPING
+# ------------------------------------------------------------------------------
+# When a Discord member has this Discord Role ID, grant them the Minecraft group.
+# Format:
+#   "DISCORD_ROLE_ID": <minecraft_group_name>
+discord_to_minecraft:
+  "000000000000000000": "booster"
+  "000000000000000001": "donator"
+  "000000000000000002": "vip"

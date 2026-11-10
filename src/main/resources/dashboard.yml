@@ -1,0 +1,39 @@
+# ==============================================================================
+#                      OmniCord Live Pinned Status Dashboard
+# ==============================================================================
+# Automatically maintains and updates a single live status embed in your
+# designated #server-status Discord channel with visual TPS/RAM bars and player list!
+# ==============================================================================
+
+enabled: true
+
+# Discord channel ID where the live dashboard will be sent and updated
+channel_id: "000000000000000000"
+
+# Update frequency in seconds (minimum 10s to respect Discord rate limits)
+update_interval_seconds: 15
+
+# Stored message ID (OmniCord will automatically save the message ID here once sent)
+pinned_message_id: ""
+
+# Embed configuration
+embed:
+  color_online: "#57F287"
+  color_offline: "#ED4245"
+  title: "⚡ %server_name% — Live Server Dashboard"
+  description: "Real-time live status and performance metrics for `%server_ip%`."
+  footer: "Live Dashboard • Auto-updated every %interval%s"
+  timestamp: true
+
+# Buttons on the dashboard
+buttons:
+  copy_ip:
+    enabled: true
+    label: "📋 Copy Server IP"
+  store_link:
+    enabled: true
+    label: "🛒 Webstore"
+    url: "https://store.example.com"
+  refresh:
+    enabled: true
+    label: "🔄 Force Refresh"

@@ -1,0 +1,137 @@
+# ==============================================================================
+#                      OmniCord In-Game & Chat Localization
+# ==============================================================================
+# All messages support:
+#   - Legacy colors: &a, &b, &e, &c, &7, &l, &o, &r
+#   - Modern RGB Hex: &#5865F2, #57F287, <#FEE75C>
+#   - MiniMessage syntax: <hover:show_text:'...'><click:run_command:'...'>...</click></hover>
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. MINECRAFT <-> DISCORD CHAT FORMATTING
+# ------------------------------------------------------------------------------
+chat:
+  # In-game format when a Discord message is received
+  # Placeholders: %user%, %discriminator%, %role%, %role_color%, %message%, %top_role%
+  discord_to_minecraft: "&#5865F2✦ &#7289DA[Discord] %role_color%%user% &#8A9CFE› &#FFFFFF%message%"
+
+  # In-game format when a Discord reply is received
+  discord_to_minecraft_reply: "&#5865F2✦ &#7289DA[Discord] %role_color%%user% &8↳ &7%reply_to% &#8A9CFE› &#FFFFFF%message%"
+
+  # Format for attachments posted in Discord
+  attachment_format: "&#8A9CFE[📎 %file_name%]"
+
+  # Discord format when an in-game message is sent (Used when webhooks are disabled)
+  minecraft_to_discord: "**%player%**: %message%"
+
+# ------------------------------------------------------------------------------
+# 2. IN-GAME EVENT BROADCASTS (AESTHETIC STYLING)
+# ------------------------------------------------------------------------------
+events:
+  # Enable custom aesthetic in-game broadcasts (Set false to keep vanilla Minecraft messages)
+  custom_in_game_messages: true
+
+  # Player Join
+  join_minecraft: "&#57F287✔ &#A8FFB2%player% &7connected &8(&#57F287%online%&8/&#57F287%max%&8)"
+
+  # Player First Join (Grand Boxed Welcome Banner)
+  first_join_minecraft:
+    - "&#FEE75C╭──────────────────────────────────────────────────╮"
+    - "&#FEE75C│  &#FEE75C★ &#FFF275Welcome &#FFFFFF&l%player% &#FFF275to the server! &#888888(#%unique_joins%)"
+    - "&#FEE75C│  &#7289DAGive them a warm welcome! ✦"
+    - "&#FEE75C╰──────────────────────────────────────────────────╯"
+
+  # Player Quit
+  quit_minecraft: "&#ED4245✘ &#FFA8A8%player% &7disconnected &8(&#ED4245%online%&8/&#ED4245%max%&8)"
+
+  # PvP Kill
+  pvp_kill_minecraft: "&#ED4245⚔ &#FF7B7B%player% &7was slain by &#FFAA00%killer% &7using &#FFD166[%weapon%] &8(&#FEE75C✦ %distance%m&8)"
+
+  # Advancements & Achievements
+  advancement_challenge_minecraft: "&#9B59B6🏆 &#E0AAFF&lCHALLENGE CONQUERED! &#FFFFFF%player% &7completed &#9B59B6&l[%advancement_title%]&r"
+  advancement_goal_minecraft: "&#5865F2🎯 &#8A9CFE&lGOAL REACHED! &#FFFFFF%player% &7achieved &#5865F2&l[%advancement_title%]&r"
+  advancement_task_minecraft: "&#57F287✦ &#A8FFB2&lADVANCEMENT MADE! &#FFFFFF%player% &7unlocked &#57F287&l[%advancement_title%]&r"
+  advancement_minecraft: "&#57F287✦ &#A8FFB2%player% &7has made the advancement &#57F287&l[%advancement_title%]&r"
+
+# ------------------------------------------------------------------------------
+# 3. STAFF CHAT
+# ------------------------------------------------------------------------------
+staff_chat:
+  # Format in-game for staff members
+  minecraft_format: "&#EB455F🔒 &#FF758F&lSTAFF &#EB455F» &#FFFFFF%player% &#8A9CFE› &#FEE75C%message%"
+
+  # Format sent to Discord staff channel
+  discord_format: "🔒 **[StaffChat] %player%**: %message%"
+
+  # Format in-game when a message comes from the Discord staff channel
+  discord_to_minecraft: "&#EB455F🔒 &#FF758F&lSTAFF &#5865F2[Discord] &#FFFFFF%user% &#8A9CFE› &#FEE75C%message%"
+
+  # Error when player does not have permission
+  no_permission: "&#ED4245✘ You do not have permission to access the Staff Chat!"
+
+  # Error when message is empty
+  empty_message: "&#ED4245✘ Usage: &e/staffchat <message>"
+
+# ------------------------------------------------------------------------------
+# 4. ACCOUNT LINKING MESSAGES
+# ------------------------------------------------------------------------------
+linking:
+  # In-game message when a code is generated
+  code_generated:
+    - "&#5865F2╭──────────────────────────────────────────────────╮"
+    - "&#5865F2│  &#5865F2❖ &#7289DA&lDiscord Account Verification"
+    - "&#5865F2│  &7Your 6-digit link PIN is: &#57F287&l%code%"
+    - "&#5865F2│  &7Open Discord and run: &#8A9CFE/link code:%code%"
+    - "&#5865F2│  &8• &cExpires in &e%expires% minutes"
+    - "&#5865F2╰──────────────────────────────────────────────────╯"
+
+  # In-game message when account is successfully linked
+  link_success: "%prefix%&#57F287✔ Success! Your Minecraft account is now linked to &#7289DA&l%discord_tag%&#57F287!"
+
+  # In-game message when account is unlinked
+  unlink_success: "%prefix%&eYour Minecraft account has been unlinked from Discord."
+
+  # When player is already linked
+  already_linked: "%prefix%&#ED4245✘ Your account is already linked to &#7289DA%discord_tag%&c. Use &e/discord unlink &cto unlink."
+
+  # When player is not linked
+  not_linked: "%prefix%&#ED4245✘ Your account is not linked to Discord! Type &e/discord link &cto get started."
+
+  # Reward claimed message
+  reward_claimed: "%prefix%&#FEE75C★ Congratulations! You have received your Discord Linking rewards!"
+
+# ------------------------------------------------------------------------------
+# 5. PLAYER REPORT SYSTEM
+# ------------------------------------------------------------------------------
+reports:
+  # Feedback to the reporter in-game
+  submitted: "%prefix%&#57F287✔ Thank you! Your report against &e%target% &7has been dispatched to staff on Discord."
+
+  # Error when reporting themselves
+  cannot_report_self: "%prefix%&#ED4245✘ You cannot report yourself!"
+
+  # Error when target player is not found
+  player_not_found: "%prefix%&#ED4245✘ Player &e%target% &cwas not found online."
+
+  # Missing arguments
+  usage: "%prefix%&#ED4245✘ Usage: &e/report <player> <reason>"
+
+# ------------------------------------------------------------------------------
+# 6. GENERAL & COMMAND FEEDBACK
+# ------------------------------------------------------------------------------
+commands:
+  # Reload successful
+  reload_success: "%prefix%&#57F287✔ All configurations, messages, and Discord modules reloaded in &#FFFFFF%ms%ms&#57F287!"
+
+  # Bot status check
+  status_connected: "%prefix%&#57F287✔ Discord Gateway: &aONLINE &8(&#57F287%ping%ms&8)"
+  status_disconnected: "%prefix%&#ED4245✘ Discord Gateway: &cOFFLINE &8(&7Check token in config.yml&8)"
+
+  # No permission error
+  no_permission: "%prefix%&#ED4245✘ You do not have permission to execute this command."
+
+  # Player only command error
+  player_only: "%prefix%&#ED4245✘ This command can only be executed by in-game players."
+
+  # Synchronized roles message
+  sync_success: "%prefix%&#57F287✔ Your Discord roles and nickname have been synchronized!"

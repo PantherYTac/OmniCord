@@ -1,0 +1,40 @@
+# ==============================================================================
+#                      OmniCord Custom Discord Slash Commands
+# ==============================================================================
+# Define custom Discord slash commands directly without code!
+# ==============================================================================
+
+enabled: true
+
+commands:
+  rules:
+    description: "Read the official server rules and guidelines"
+    embed:
+      color: "#5865F2"
+      title: "📜 Server Rules & Guidelines"
+      description: |
+        1. Be respectful to all members and staff.
+        2. No hacking, cheating, or x-ray texture packs.
+        3. No advertising other servers or toxic behavior.
+        4. Keep all chats in their designated channels.
+      footer: "%server_name% • Play Fair"
+
+  store:
+    description: "Get the link to our official server store"
+    embed:
+      color: "#FEE75C"
+      title: "🛒 Official Webstore"
+      description: "Support the server and get ranks, perks, and cosmetics at:\n👉 **https://store.example.com**"
+      footer: "Thank you for supporting %server_name%!"
+
+  vote:
+    description: "Vote for the server and get free daily in-game rewards!"
+    embed:
+      color: "#57F287"
+      title: "🗳️ Daily Vote Links"
+      description: |
+        Vote daily on these sites to earn free keys and coins:
+        • [PlanetMinecraft](https://example.com/vote1)
+        • [MinecraftServers](https://example.com/vote2)
+        • [TopG](https://example.com/vote3)
+      footer: "Earn vote rewards with /vote in-game!"

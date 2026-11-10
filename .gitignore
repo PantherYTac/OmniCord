@@ -1,0 +1,8 @@
+.gradle/
+build/
+*.log
+.DS_Store
+.idea/
+*.iml
+*.db
+omnicord.db
