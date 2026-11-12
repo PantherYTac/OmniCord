@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/omnicord-cover.png" alt="OmniCord Banner" width="100%" />
+</p>
+
 # OmniCord — Next-Generation Minecraft to Discord Suite
 
 **OmniCord** is a high-speed, feature-rich, and modular Discord bridge and community management plugin designed to replace and outperform **DiscordSRV** and **EssentialsX Discord**.
